@@ -9,7 +9,7 @@
       <ion-grid>
         <ion-row>
           <ion-col
-            size="6"
+            :size="sizeColumn"
             :key="photo.filepath"
             v-for="photo in photos"
           >
@@ -49,9 +49,12 @@ import {
   IonRow,
   IonCol,
   IonImg,
+  onIonViewWillEnter,
 } from '@ionic/vue';
 import { UserPhoto } from '@/types/userPhoto';
 import { usePhotoGallery } from '@/composables/usePhotoGallery';
+import { Preferences } from '@capacitor/preferences';
+import { ref } from 'vue';
 
 const { photos, takePhoto, deletePhoto } = usePhotoGallery();
 
@@ -79,4 +82,12 @@ const showActionSheet = async (photo: UserPhoto) => {
   });
   await actionSheet.present();
 };
+
+const sizeColumn = ref<string>();
+
+onIonViewWillEnter(async () => {
+  sizeColumn.value = (await Preferences.get({ key: 'sizeColumn' }))
+    .value as string;
+  console.log(`sizeColumn ${sizeColumn.value}!`);
+});
 </script>

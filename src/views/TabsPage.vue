@@ -9,9 +9,9 @@
         >
           <ion-icon
             aria-hidden="true"
-            :icon="triangle"
+            :icon="images"
           />
-          <ion-label>Tab 1</ion-label>
+          <ion-label>Photos</ion-label>
         </ion-tab-button>
 
         <ion-tab-button
@@ -20,9 +20,10 @@
         >
           <ion-icon
             aria-hidden="true"
-            :icon="images"
+            images
+            :icon="settings"
           />
-          <ion-label>Photos</ion-label>
+          <ion-label>Settings</ion-label>
         </ion-tab-button>
 
         <ion-tab-button
@@ -31,9 +32,9 @@
         >
           <ion-icon
             aria-hidden="true"
-            :icon="square"
+            :icon="browsers"
           />
-          <ion-label>Tab 3</ion-label>
+          <ion-label>About</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -50,5 +51,5 @@ import {
   IonPage,
   IonRouterOutlet,
 } from '@ionic/vue';
-import { images, square, triangle } from 'ionicons/icons';
+import { images, settings, browsers } from 'ionicons/icons';
 </script>
